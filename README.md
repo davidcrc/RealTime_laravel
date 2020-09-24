@@ -47,3 +47,9 @@
     php artisan make:event UserSessionChanged
 
     - Este evento debe ser transmitido en tiempo real
+    - Esto lo indicamos a traves de un listener: 
+        php artisan make:listener BroadcastUserLoginNotification
+        php artisan make:listener BroadcastUserLogoutNotification
+
+    - Añadimos los listener creados a , tambien importamos todas las clasess:
+        app/Providers/EventServiceProvider.php
