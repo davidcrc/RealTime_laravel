@@ -14,3 +14,8 @@
     php artisan                  // Aca nos da los comandos que tenemos utilizables
     php artisan ui bootstrap --auth
     npm install && npm run dev
+
+
+### 2.1 Un poco de laravel Mix
+
+    Ubicando en webpack.mix.js desde ali genera los diferentes js y css necesarios
