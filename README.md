@@ -84,3 +84,5 @@
 
     --luego modificar en : resources/js/app.js
     window.Echo.private('notifications') { ... }
+
+    npm run dev
