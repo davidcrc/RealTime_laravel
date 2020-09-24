@@ -19,3 +19,17 @@
 ### 2.1 Un poco de laravel Mix
 
     Ubicando en webpack.mix.js desde ali genera los diferentes js y css necesarios
+
+
+## 3. Configurando Pusher
+
+    composer require pusher/pusher-php-server
+
+    1. Modificar el .env
+    BROADCAST_DRIVER=pusher
+
+    2. Las credenciales ...
+    PUSHER_APP_ID ...
+
+    3. Descomentar en config/app.php
+    App\Providers\BroadcastServiceProvider::class,
