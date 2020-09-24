@@ -3,7 +3,8 @@ const { default: Echo } = require('laravel-echo');
 require('./bootstrap');
 
 // Esto mostrara o modificara la interfaz
-window.Echo.channel('notifications')
+// window.Echo.channel('notifications')
+window.Echo.private('notifications')
     .listen('UserSessionChanged', (e) => {
         const notificationElement = document.getElementById('notification');
 

@@ -43336,9 +43336,10 @@ var _require = __webpack_require__(/*! laravel-echo */ "./node_modules/laravel-e
     Echo = _require["default"];
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Esto mostrara o modificara la interfaz
+// window.Echo.channel('notifications')
 
 
-window.Echo.channel('notifications').listen('UserSessionChanged', function (e) {
+window.Echo["private"]('notifications').listen('UserSessionChanged', function (e) {
   var notificationElement = document.getElementById('notification');
   notificationElement.innerText = e.message;
   notificationElement.classList.remove('invisible');

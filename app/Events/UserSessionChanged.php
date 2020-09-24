@@ -41,6 +41,6 @@ class UserSessionChanged implements ShouldBroadcast
         // return new PrivateChannel('channel-name');
         // \Log::debug("{$this->message}");
         // \Log::debug("{$this->type}");
-        return new Channel('notifications');
+        return new PrivateChannel('notifications');
     }
 }

@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Broadcast;
 Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+
+
+// P4-V4 Aca creamos un canal privado, debemos redefinirlo en resources/js/app.js
+// el anterior broadcast funciona para el canal publico 
+Broadcast::channel('notifications', function ($user) {
+    return $user != null;
+});

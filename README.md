@@ -72,3 +72,15 @@
     });
 
     npm run dev
+
+    -- Si deseamos un canal privado , solo para usuarios autenticados 
+    debemos cambiar en el listener:
+    broadcastOn() ... PrivateChannel
+
+    --tambien en : routes/channels.php , crear el canal
+    Broadcast::channel('notifications', function ($user) {
+        return $user != null;
+    });
+
+    --luego modificar en : resources/js/app.js
+    window.Echo.private('notifications') { ... }
