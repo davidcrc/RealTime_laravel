@@ -53,3 +53,22 @@
 
     - Añadimos los listener creados a , tambien importamos todas las clasess:
         app/Providers/EventServiceProvider.php
+
+## 6. Mostrando la notificacion
+
+    - Añadimos esto en resources/js/app.js:
+    window.Echo.channel('notifications')
+    .listen('UserSessionChanged', (e) => {
+        const notificationElement = document.getElementById('notification');
+
+        notificationElement.innerText = e.message;
+
+        notificationElement.classList.remove('invisible');
+        notificationElement.classList.remove('alert-success');
+        notificationElement.classList.remove('alert-danger');
+
+        notificationElement.classList.add('alert-'+e.type);
+
+    });
+
+    npm run dev

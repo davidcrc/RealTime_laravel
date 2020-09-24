@@ -43332,7 +43332,20 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+var _require = __webpack_require__(/*! laravel-echo */ "./node_modules/laravel-echo/dist/echo.js"),
+    Echo = _require["default"];
+
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Esto mostrara o modificara la interfaz
+
+
+window.Echo.channel('notifications').listen('UserSessionChanged', function (e) {
+  var notificationElement = document.getElementById('notification');
+  notificationElement.innerText = e.message;
+  notificationElement.classList.remove('invisible');
+  notificationElement.classList.remove('alert-success');
+  notificationElement.classList.remove('alert-danger');
+  notificationElement.classList.add('alert-' + e.type);
+});
 
 /***/ }),
 
