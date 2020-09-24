@@ -33,3 +33,11 @@
 
     3. Descomentar en config/app.php
     App\Providers\BroadcastServiceProvider::class,
+
+## 4. Laravel echo : Definicion aqui
+
+    npm install --save-dev laravel-echo pusher-js
+
+    - Descomentar en resources/js/bootstrap.js , lo referente a laravel echo
+
+    - Volver a compilar: npm run dev
