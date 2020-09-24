@@ -41,3 +41,9 @@
     - Descomentar en resources/js/bootstrap.js , lo referente a laravel echo
 
     - Volver a compilar: npm run dev
+
+## 5. Evento para la modificacion de sesiones
+
+    php artisan make:event UserSessionChanged
+
+    - Este evento debe ser transmitido en tiempo real
