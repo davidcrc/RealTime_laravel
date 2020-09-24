@@ -73,6 +73,8 @@
         </nav>
 
         <main class="py-4">
+            <!-- Aqui mostraremos una alerta di alguien inicia o cierra sesion  -->
+            <div id="notification" class="alert mx-3 invisible" > Test </div>
             @yield('content')
         </main>
     </div>
