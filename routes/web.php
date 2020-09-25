@@ -24,3 +24,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // P5-V2: Ruta para la vista que mostrara a los usuarios
 Route::view('/users', 'users.showAll')->name('users.all');
+
+
+// P6-V1 : La vista para un juego en tiempo real
+Route::view('/game', 'game.show')->name('game.all');
+
