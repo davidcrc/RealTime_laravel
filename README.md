@@ -86,3 +86,11 @@
     window.Echo.private('notifications') { ... }
 
     npm run dev 
+
+## API : 
+
+    - Controlador de recurso:
+    -- Api/UserController : Archivo
+    -- -r : Indica que es un recurso
+    -- -m : Indicar el modelo
+    php artisan make:controller Api/UserController -r -m User
