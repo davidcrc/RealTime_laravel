@@ -20,3 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// P5-V2: Ruta para la vista que mostrara a los usuarios
+Route::view('/users', 'users.showAll')->name('users.all');
