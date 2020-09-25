@@ -39,7 +39,7 @@ class UserCreated implements ShouldBroadcast
     {
         // return new PrivateChannel('channel-name');
         // \Log::debug("{$this->message}");
-        // \Log::debug("{$this->type}");
+        \Log::debug("User created {$this->user->name} ");
         return new Channel('users');
     }
 }

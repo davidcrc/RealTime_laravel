@@ -38,8 +38,8 @@ class UserUpdated implements ShouldBroadcast
     public function broadcastOn()
     {
         // return new PrivateChannel('channel-name');
-        // \Log::debug("{$this->message}");
-        // \Log::debug("{$this->type}");
+        \Log::debug("User updated {$this->user->name} ");
+
         return new Channel('users');
     }
 }

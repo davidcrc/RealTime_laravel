@@ -94,3 +94,12 @@
     -- -r : Indica que es un recurso
     -- -m : Indicar el modelo
     php artisan make:controller Api/UserController -r -m User
+
+
+    - Crear los eventos UserCreated, UserUpdated, UserDeleted: estos enviaran los datos(generado en el constructor) a traves del chanel publico
+    - Para disparar los eventos relaciona a X modelo, definir esta variable en el modelo
+    protected $dispatchesEvents = [
+        'created' => UserCreated::class,
+        'updated' => UserUpdated::class,
+        'deleted' => UserDeleted::class
+    ];
