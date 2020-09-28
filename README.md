@@ -103,3 +103,12 @@
         'updated' => UserUpdated::class,
         'deleted' => UserDeleted::class
     ];
+
+## Game:
+
+    - Ya se creo la interfaz de juego en views/game/show.blade.php
+
+    - Crear los eventos : RemainingTimeChanged.php, WinnerNumberGenerated.php con sus variables
+
+    - Crear un COMANDO (app/Console/Commands/GameExecuter.php): Definicion aqui..
+        php artisan make:command GameExecuter
