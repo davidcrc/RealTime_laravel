@@ -29,3 +29,7 @@ Route::view('/users', 'users.showAll')->name('users.all');
 // P6-V1 : La vista para un juego en tiempo real
 Route::view('/game', 'game.show')->name('game.all');
 
+
+// P7-V1 Controlador para la sala de chat
+Route::get('/chat', [App\Http\Controllers\ChatController::class, 'showChat'])->name('chat.show');
+

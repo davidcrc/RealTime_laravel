@@ -112,3 +112,8 @@
 
     - Crear un COMANDO (app/Console/Commands/GameExecuter.php): deje ejecutarse para que se envien el contador y demas usando pusher
         php artisan make:command GameExecuter
+
+
+## Sala de chat:
+
+    - Controlador: ChatController.php
