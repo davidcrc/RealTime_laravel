@@ -48,7 +48,7 @@
                         <hr>
 
                         <p class="fornt-weight-bold h5" >Remaining Time</p>
-                        <p id="timer" class="h5 text-danger" >Waiting to start </p>
+                        <p id="timer" class="h5 text-danger" >Waiting to start.. </p>
 
                         <hr>
 
@@ -61,3 +61,52 @@
     </div>
 </div>
 @endsection
+
+
+@push('scripts')
+<script>
+    const circleElement = document.getElementById('circle');
+    const timerElement = document.getElementById('timer');
+    const winnerElement = document.getElementById('winner');
+    const betElement = document.getElementById('bet');
+    const resultElement = document.getElementById('result');
+    
+    Echo.channel('game')
+    .listen('RemainingTimeChanged' , (e) => {
+
+        timerElement.innerText = e.time;
+
+        circleElement.classList.add('refresh');
+
+        winnerElement.classList.add('d-none')
+
+        resultElement.innerText = '';
+
+
+        winnerElement.classList.remove('text-success');
+        winnerElement.classList.remove('text-danger');
+
+    })
+    .listen('WinnerNumberGenerated', (e) => {
+        circleElement.classList.remove('refresh');
+
+        let winner = e.number;
+        winnerElement.innerText = winner;
+        winnerElement.classList.remove('d-none');
+
+        let bet = betElement[betElement.selectedIndex].innerText;
+
+        if(bet == winner){
+            resultElement.innerHTML = 'You Winn!!';
+            resultElement.classList.add('text-success')
+        }
+        else{
+            resultElement.innerHTML = 'You LOSE!!';
+            resultElement.classList.add('text-danger')
+        }
+
+    });
+    
+    
+</script>
+@endpush

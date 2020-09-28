@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Console\Commands;
+use App\Events\RemainingTimeChanged;
+use App\Events\WinnerNumberGenerated;
 
 use Illuminate\Console\Command;
 
@@ -21,7 +23,7 @@ class GameExecuter extends Command
     protected $description = 'Starts the exectution game';
 
     // Esta variable mas
-    private $time = 15;
+    private $time = 10;
 
     /**
      * Create a new command instance.
@@ -42,20 +44,20 @@ class GameExecuter extends Command
     {
         while(true){
             // ... 
-            \broadcast(new RemainigTimeChanged($this->time . 's'));
+            \broadcast(new RemainingTimeChanged($this->time . 's'));
             
             $this->time--;
             \sleep(1);
             
             if ($this->time === 0) {
                 $this->time = 'Waiting to start';
-                \broadcast(new RemainigTimeChanged($this->time ));
+                \broadcast(new RemainingTimeChanged($this->time ));
                 
-                \broadcast(new WinnerNumberGenerated( \mt_rand(1, 12) ));
+                \broadcast(new WinnerNumberGenerated( \mt_rand(2, 4) ));
 
                 \sleep(5);
 
-                $this->time = 15;
+                $this->time = 10;
             }
         }
         // return 0;

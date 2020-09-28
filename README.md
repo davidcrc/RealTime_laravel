@@ -34,7 +34,7 @@
     3. Descomentar en config/app.php
     App\Providers\BroadcastServiceProvider::class,
 
-## 4. Laravel echo : Definicion aqui
+## 4. Laravel echo : Echo expone una API expresiva para suscribirse a canales y escuchar eventos que son transmitidos por Laravel. La transmisión de eco y eventos permite a su equipo crear fácilmente aplicaciones web sólidas en tiempo real.
 
     npm install --save-dev laravel-echo pusher-js
 
@@ -110,5 +110,5 @@
 
     - Crear los eventos : RemainingTimeChanged.php, WinnerNumberGenerated.php con sus variables
 
-    - Crear un COMANDO (app/Console/Commands/GameExecuter.php): Definicion aqui..
+    - Crear un COMANDO (app/Console/Commands/GameExecuter.php): deje ejecutarse para que se envien el contador y demas usando pusher
         php artisan make:command GameExecuter
