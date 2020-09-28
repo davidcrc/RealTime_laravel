@@ -119,7 +119,7 @@
     - Controlador: ChatController.php
 
 
-## Sala de chat:
+## Sala de chat (global):
 
     - Controlador: ChatController.php
     - Canal: De presencia, utiliza mostrar a los usuario con sesion y en una vista en especifico
@@ -131,3 +131,5 @@
     - Crear la ruta que tomara los mensajes : routes/web.php : /chat/message
 
     - Añadir en el controlador (MessageSend.php ) la funcion messageReceived(), que devolvera los mensajes a los demas usuarios conectados
+
+    - Laravel Echo: La funcion listen() escuchara el evento y nos mostrara los mensajes enviados

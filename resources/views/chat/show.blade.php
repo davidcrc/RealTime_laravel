@@ -26,8 +26,8 @@
                                         style="height: 45vh"
                                         >
 
-                                        <li>Test1: hello</li>
-                                        <li>Test2: hello</li>
+                                        {{-- <li>Test1: hello</li>
+                                        <li>Test2: hello</li> --}}
                                     </ul>
                                 </div>
                             </div>
@@ -71,6 +71,7 @@
 <script>
     
     const usersElement = document.getElementById('users');
+    const messagesElement = document.getElementById('messages');
 
     // Canal de preencia
     Echo.join('chat')
@@ -98,6 +99,13 @@
             element.parentElement.removeChild(element);
             
         })
+        .listen('MessageSend', (e) => {     // Escuchara al evento? , MessageSend
+            
+            let element = document.createElement('li');
+            element.innerText = e.user.name + ': ' + e.message;
+
+            messagesElement.appendChild(element);
+        });
     
     
 </script>
