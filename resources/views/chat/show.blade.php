@@ -51,8 +51,8 @@
                             <p><strong>Online now</strong></p>
 
                             <ul id="users" class="list-unstyled overflow-auto text-info" style="height: 45vh" >
-                                <li>User1</li>
-                                <li>User2</li>
+                                {{-- <li>User1</li>
+                                <li>User2</li> --}}
                             </ul>
 
                         </div>
@@ -70,6 +70,34 @@
 @push('scripts')
 <script>
     
+    const usersElement = document.getElementById('users');
+
+    // Canal de preencia
+    Echo.join('chat')
+        .here( (users) => {
+            users.forEach((user, index) => {
+                let element = document.createElement('li');
+                element.setAttribute('id', user.id);
+                element.innerText = user.name;
+                
+                usersElement.appendChild(element);
+            });
+        })
+        .joining( (user) => {
+
+            let element = document.createElement('li');
+            element.setAttribute('id', user.id);
+            element.innerText = user.name;
+            
+            usersElement.appendChild(element);
+
+        } )
+        .leaving( (user)  => {
+            let element = document.getElementById(user.id);
+
+            element.parentElement.removeChild(element);
+            
+        })
     
     
 </script>

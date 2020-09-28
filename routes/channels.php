@@ -23,3 +23,11 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 Broadcast::channel('notifications', function ($user) {
     return $user != null;
 });
+
+
+// P7-v2 Creamos un channel de presencia para el chat
+Broadcast::channel('chat', function ($user) {
+    if ($user != null){
+        return ['id' => $user->id , 'name' => $user->name];
+    }
+});
