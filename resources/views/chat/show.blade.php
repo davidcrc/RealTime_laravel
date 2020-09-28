@@ -101,4 +101,24 @@
     
     
 </script>
+
+
+{{-- Este script tomara los mensaje enviados y los mostrara --}}
+<script>
+
+    const sendElement = document.getElementById('send');
+    const messageElement = document.getElementById('message');
+
+    sendElement.addEventListener('click', (e) => {
+        // primero evitar que el formulario se envie (se recargue)
+        e.preventDefault();
+
+        window.axios.post('/chat/message', {
+            message: messageElement.value
+        });
+        
+        messageElement.value = '';
+    });
+</script>
+
 @endpush

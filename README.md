@@ -127,3 +127,7 @@
 
 
     - Evento para el envio de mensajes: Events/MessageSend.php
+
+    - Crear la ruta que tomara los mensajes : routes/web.php : /chat/message
+
+    - Añadir en el controlador (MessageSend.php ) la funcion messageReceived(), que devolvera los mensajes a los demas usuarios conectados

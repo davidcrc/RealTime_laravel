@@ -33,3 +33,8 @@ Route::view('/game', 'game.show')->name('game.all');
 // P7-V1 Controlador para la sala de chat
 Route::get('/chat', [App\Http\Controllers\ChatController::class, 'showChat'])->name('chat.show');
 
+
+// P7-V4 Transmitiendo el mensaje a los usuarios
+Route::post('/chat/message', [App\Http\Controllers\ChatController::class, 'messageReceived'])->name('chat.message');
+
+
