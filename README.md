@@ -124,3 +124,6 @@
     - Controlador: ChatController.php
     - Canal: De presencia, utiliza mostrar a los usuario con sesion y en una vista en especifico
         Este se crea en routes/channels.php
+
+
+    - Evento para el envio de mensajes: Events/MessageSend.php
