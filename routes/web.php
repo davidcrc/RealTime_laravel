@@ -38,3 +38,5 @@ Route::get('/chat', [App\Http\Controllers\ChatController::class, 'showChat'])->n
 Route::post('/chat/message', [App\Http\Controllers\ChatController::class, 'messageReceived'])->name('chat.message');
 
 
+// P8-V1 : Ruta para mensajes privados
+Route::get('/chat/greet/{user}', [App\Http\Controllers\ChatController::class, 'greetReceived'])->name('chat.greet');

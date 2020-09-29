@@ -133,3 +133,10 @@
     - Añadir en el controlador (MessageSend.php ) la funcion messageReceived(), que devolvera los mensajes a los demas usuarios conectados
 
     - Laravel Echo: La funcion listen() escuchara el evento y nos mostrara los mensajes enviados
+
+
+## Sala de chat (private):
+
+    - Creamos la ruta : /chat/greet/{user}
+    - Añadimos a Controlador (ChatController.php): greetReceived(request tiene el usuario origen(en session), id del usuario destino)
+

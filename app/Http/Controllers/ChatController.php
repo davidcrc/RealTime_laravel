@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Events\MessageSend;
-
+use App\Models\User;
 class ChatController extends Controller
 {
     /**
@@ -41,5 +41,14 @@ class ChatController extends Controller
         \broadcast(new MessageSend($request->user(), $request->message ));
 
         return \response()->json('Message broadcast');
+    }
+
+    // P8-V1 : Esta funcion enviara un mensaje privado a un usuario especifico
+    // request obtiene el usuario origen 
+    // user tiene el usuario destino
+    public function greetReceived(Request $request, User $user)
+    {
+        
+        return 'Message greeting : '.$user->name . ' from '. $request->user()->name;
     }
 }
