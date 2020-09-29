@@ -31,3 +31,9 @@ Broadcast::channel('chat', function ($user) {
         return ['id' => $user->id , 'name' => $user->name];
     }
 });
+
+// P8-V2 : Aqui nos aseguramos que el canal creado para un usuario especifico
+// sera leido solo por ese usuario
+Broadcast::channel('chat.greet.{receiver}', function ($user, $receiver) {
+    return (int) $user->id === (int) $receiver;
+});

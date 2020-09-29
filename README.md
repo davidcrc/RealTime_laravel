@@ -135,8 +135,12 @@
     - Laravel Echo: La funcion listen() escuchara el evento y nos mostrara los mensajes enviados
 
 
-## Sala de chat (private):
+## Sala de chat (private): Parecido a un toque
 
     - Creamos la ruta : /chat/greet/{user}
-    - Añadimos a Controlador (ChatController.php): greetReceived(request tiene el usuario origen(en session), id del usuario destino)
+    - Añadimos a Controlador (ChatController.php): ChatController(request tiene el usuario origen(en session), id del usuario destino)
+
+    - Evento (GreetingSend.php): Enviara por un canal privado y dirigido solo al usuario destino
+    - Canal ('chat.greet.{receiver}'): Asegurara que solo el destinatario pueda ver el mensaje
+    - Mod (ChatController): ChatController : para hacer el broadcast de (origen y destino)
 
