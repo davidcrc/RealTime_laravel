@@ -40,7 +40,7 @@ class GreetingSend implements ShouldBroadcast
     public function broadcastOn()
     {
         // return new PrivateChannel('channel-name');
-        \Log::debug("{$this->message}");
+        // \Log::debug("{$this->message}");
         // \Log::debug("{$this->user->name} : {$this->message}  ");
         return new PrivateChannel("chat.greet.{$this->user->id}");
     }

@@ -140,4 +140,17 @@
     }
 </script>
 
+{{-- Escuhca al evento  GreetingSend, solo para el usuario en sesion que sera el destinatario final--}}
+<script>
+    Echo.private('chat.greet.{{auth()->user()->id}}')
+        .listen('GreetingSend', (e) => {
+
+            let element = document.createElement('li');
+            element.innerText = e.message;
+
+            element.classList.add('text-success');
+
+            messagesElement.appendChild(element);
+        })
+</script>
 @endpush
