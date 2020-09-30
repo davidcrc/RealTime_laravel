@@ -199,3 +199,32 @@
         encrypted: True false,
         disableStats: Truw false,
         forceTLS: True false
+
+    - UTILIZANDO HTTPS:
+    
+        MI_PUSHER_APP_HOST=midominio.com
+        MI_PUSHER_APP_PORT=443
+
+        -- En bootstrap.js: Verificar si necesitamos encryptar o el TLS ...
+        encrypted: true,
+        disableStats: true,
+        forceTLS: true
+
+        -- En config/broadcasting.php añadir scheme:
+
+        'pusher' => [
+            'driver' => 'pusher',
+            'key' => env('PUSHER_APP_KEY'),
+            'secret' => env('PUSHER_APP_SECRET'),
+            'app_id' => env('PUSHER_APP_ID'),
+            'options' => [
+                'cluster' => env('PUSHER_APP_CLUSTER'),
+                'host' => env('MI_PUSHER_APP_HOST'),
+                'port' => env('MI_PUSHER_APP_PORT'),
+                'useTLS' => true,
+                'scheme' => 'https'
+            ],
+        ]
+
+        - Correr denuevo:
+            npm run dev
