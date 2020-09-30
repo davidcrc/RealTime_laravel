@@ -144,3 +144,47 @@
     - Canal ('chat.greet.{receiver}'): Asegurara que solo el destinatario pueda ver el mensaje
     - Mod (ChatController): ChatController : para hacer el broadcast de (origen y destino)
 
+
+## Utilizando ServWebSocket propio:
+
+    - En .env (comentar o reeplazar):
+        PUSHER_APP_ID=111
+        PUSHER_APP_KEY=public-key-124555
+        PUSHER_APP_SECRET=secret-key-12345
+        PUSHER_APP_CLUSTER=
+
+        MI_PUSHER_APP_HOST=127.0.0.1
+        MI_PUSHER_APP_PORT=6001
+
+        ...
+
+        MIX_PUSHER_APP_HOST="${MI_PUSHER_APP_HOST}"
+        MIX_PUSHER_APP_PORT="${MI_PUSHER_APP_PORT}"
+
+    - En config/broadcasting.php modificar (comentar las demas dlineas de pusher en el .env):
+        'pusher' => [
+            'driver' => 'pusher',
+            'key' => env('PUSHER_APP_KEY'),
+            'secret' => env('PUSHER_APP_SECRET'),
+            'app_id' => env('PUSHER_APP_ID'),
+            'options' => [
+                'cluster' => env('PUSHER_APP_CLUSTER'),
+                'host' => env('MI_PUSHER_APP_HOST'),           // agregar
+                'port' => env('MI_PUSHER_APP_PORT'),           // agregar
+                'useTLS' => true,
+            ],
+        ],
+
+    - En resources/js/bootstrap.js modificar:
+        window.Echo = new Echo({
+            broadcaster: 'pusher',
+            key: process.env.MIX_PUSHER_APP_KEY,
+            cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+            wsHost: process.env.MIX_PUSHER_APP_HOST,
+            wsPort: process.env.MIX_PUSHER_APP_PORT,
+            encrypted: false,
+            disableStats: true,
+            forceTLS: false
+        });
+
+    npm run dev

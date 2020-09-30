@@ -37,6 +37,8 @@ return [
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
+                'host' => env('MI_PUSHER_APP_HOST'),
+                'port' => env('MI_PUSHER_APP_PORT'),
                 'useTLS' => true,
             ],
         ],
