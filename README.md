@@ -188,3 +188,14 @@
         });
 
     npm run dev
+
+## Conectar a produccion:
+
+    - Modificar en el .env
+        MI_PUSHER_APP_HOST=midominio.com
+        MI_PUSHER_APP_PORT=80
+
+    - En bootstrap.js: Verificar si necesitamos encryptar o el TLS ...
+        encrypted: True false,
+        disableStats: Truw false,
+        forceTLS: True false
